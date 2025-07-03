@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+
+  <div style="width: 250px; margin: 50px auto; text-align: center; padding: 20px; border: 2px solid black; border-radius: 10px; background: #f4f4f4;">
+    <input type="text" id="display" style="width: 90%; height: 50px; font-size: 1.5em; text-align: right; margin-bottom: 10px;" disabled>
+    <br>
+    <button onclick="clearDisplay()" style="width: 23%; height: 50px;">C</button><br>
+    <button onclick="appendToDisplay('7')" style="width: 23%; height: 50px;">7</button>
+    <button onclick="appendToDisplay('8')" style="width: 23%; height: 50px;">8</button>
+    <button onclick="appendToDisplay('9')" style="width: 23%; height: 50px;">9</button>
+    <button onclick="appendToDisplay('/')" style="width: 23%; height: 50px;">/</button>
+    <br>
+    <button onclick="appendToDisplay('4')" style="width: 23%; height: 50px;">4</button>
+    <button onclick="appendToDisplay('5')" style="width: 23%; height: 50px;">5</button>
+    <button onclick="appendToDisplay('6')" style="width: 23%; height: 50px;">6</button>
+    <button onclick="appendToDisplay('*')" style="width: 23%; height: 50px;">*</button>
+    <br>
+    <button onclick="appendToDisplay('1')" style="width: 23%; height: 50px;">1</button>
+    <button onclick="appendToDisplay('2')" style="width: 23%; height: 50px;">2</button>
+    <button onclick="appendToDisplay('3')" style="width: 23%; height: 50px;">3</button>
+    <button onclick="appendToDisplay('-')" style="width: 23%; height: 50px;">-</button>
+    <br>
+    <button onclick="appendToDisplay('0')" style="width: 23%; height: 50px;">0</button>
+    <button onclick="appendToDisplay('.')" style="width: 23%; height: 50px;">.</button>
+    <button onclick="calculateResult()" style="width: 23%; height: 50px;">=</button>
+    <button onclick="appendToDisplay('+')" style="width: 23%; height: 50px;">+</button>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById("display").value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function calculateResult() {
+      try {
+        const result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+      } catch {
+        document.getElementById("display").value = "Error";
+      }
+    }
+  </script>
+
+</body>
+</html>
